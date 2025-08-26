@@ -38,7 +38,6 @@ jobs:
         # Upload all files from output directory to R2 bucket
         aws s3 sync output/ s3://${{ secrets.R2_BUCKET_NAME }}/ \
           --endpoint-url https://${{ secrets.R2_ACCOUNT_ID }}.r2.cloudflarestorage.com \
-          --delete \
           --cache-control "public, max-age=3600" \
           --metadata-directive REPLACE
       env:

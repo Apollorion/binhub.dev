@@ -382,11 +382,11 @@ class BinaryProcessor:
         <p>Download binaries directly using curl or wget:</p>
         <div class="usage-example">
 # Download the latest version of a binary
-curl -L https://binhub.dev/j/jq/1.6/amd64/jq -o jq
+curl -L https://binhub.dev/j/jq/1.6/linux-amd64/jq -o jq
 chmod +x jq
 
 # Download GitHub CLI
-curl -L https://binhub.dev/g/gh/2.40.1/amd64/gh -o gh
+curl -L https://binhub.dev/g/gh/2.40.1/linux-amd64/gh -o gh
 chmod +x gh
         </div>
     </div>
@@ -411,12 +411,12 @@ chmod +x gh
         <h2>🏗️ Directory Structure</h2>
         <p>Binaries are organized in a predictable nested structure:</p>
         <div class="usage-example">
-/{{first_letter}}/{{binary_name}}/{{version}}/{{architecture}}/{{binary}}
+/{{first_letter}}/{{binary_name}}/{{version}}/{{os-architecture}}/{{binary}}
 
 Examples:
-/j/jq/1.6/amd64/jq
-/g/gh/2.40.1/arm64/gh
-/k/kubectl/1.28.0/amd64/kubectl
+/j/jq/1.6/linux-amd64/jq
+/g/gh/2.40.1/darwin-arm64/gh
+/k/kubectl/1.28.0/windows-amd64/kubectl.exe
         </div>
     </div>
 
