@@ -1,0 +1,38 @@
+name: envsubst
+description: Environment variables substitution for Go.
+homepage: https://github.com/a8m/envsubst
+repository: https://github.com/a8m/envsubst
+license: MIT
+version: "1.4.3"
+
+architectures:
+  darwin-arm64:
+    url: https://github.com/a8m/envsubst/releases/download/v1.4.3/envsubst-Darwin-arm64
+    type: raw
+    sha256: 4a80df19bec14addab95e7bf93faee4e08094707bb160bb235ee1046f748650e
+
+  darwin-amd64:
+    url: https://github.com/a8m/envsubst/releases/download/v1.4.3/envsubst-Darwin-x86_64
+    type: raw
+    sha256: 9e2ca77e16231f20162ecd0c0eed57e5056e036cfcf6f42289ab2b57b51547bf
+
+  linux-amd64:
+    url: https://github.com/a8m/envsubst/releases/download/v1.4.3/envsubst-Linux-x86_64
+    type: raw
+    sha256: b6d2f0718a2de6b2108af40ded031ef664bb9e41e35a3b90864a7b436ea30650
+
+  linux-arm64:
+    url: https://github.com/a8m/envsubst/releases/download/v1.4.3/envsubst-Linux-arm64
+    type: raw
+    sha256: a0fa73ec3ff689fa522252fc6f23080566918b6dd3eb84252c4adf595a98c511
+
+  windows-amd64:
+    url: https://github.com/a8m/envsubst/releases/download/v1.4.3/envsubst.exe
+    type: raw
+    sha256: 0087f228aca9f308dcc9e97ba3c8ffd0ea343cfc9451364840479a5bf41164be
+
+tags:
+  - cli
+  - env
+  - parsing
+  - data-processing
