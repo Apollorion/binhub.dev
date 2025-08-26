@@ -45,13 +45,11 @@ jobs:
         AWS_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
         AWS_DEFAULT_REGION: auto
     
-#    - name: Invalidate Cloudflare cache (optional)
-#      if: github.ref == 'refs/heads/main'
-#      run: |
-#        # Optional: Purge Cloudflare cache if you have a custom domain
-#        if [ ! -z "${{ secrets.CLOUDFLARE_ZONE_ID }}" ] && [ ! -z "${{ secrets.CLOUDFLARE_API_TOKEN }}" ]; then
-#          curl -X POST "https://api.cloudflare.com/client/v4/zones/${{ secrets.CLOUDFLARE_ZONE_ID }}/purge_cache" \
-#            -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_API_TOKEN }}" \
-#            -H "Content-Type: application/json" \
-#            --data '{"purge_everything":true}'
-#        fi
+    - name: Invalidate Cloudflare cache (optional)
+      if: github.ref == 'refs/heads/main'
+      run: |
+        # Optional: Purge Cloudflare cache if you have a custom domain
+        curl -X POST "https://api.cloudflare.com/client/v4/zones/${{ secrets.CLOUDFLARE_ZONE_ID }}/purge_cache" \
+          -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_API_TOKEN }}" \
+          -H "Content-Type: application/json" \
+          --data '{"purge_everything":true}'
