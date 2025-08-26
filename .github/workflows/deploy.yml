@@ -1,0 +1,72 @@
+name: Deploy to Cloudflare R2
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install boto3  # For S3-compatible R2 uploads
+    
+    - name: Process binaries
+      run: |
+        python processor.py
+      env:
+        # Add any environment variables needed for processing
+        PYTHONPATH: .
+    
+    - name: Configure AWS CLI for R2
+      if: github.ref == 'refs/heads/main'
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-access-key-id: ${{ secrets.R2_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+        aws-region: auto
+    
+    - name: Upload to Cloudflare R2
+      if: github.ref == 'refs/heads/main'
+      run: |
+        # Upload all files from output directory to R2 bucket
+        aws s3 sync output/ s3://${{ secrets.R2_BUCKET_NAME }}/ \
+          --endpoint-url https://${{ secrets.R2_ACCOUNT_ID }}.r2.cloudflarestorage.com \
+          --delete \
+          --cache-control "public, max-age=3600" \
+          --metadata-directive REPLACE
+      env:
+        AWS_DEFAULT_REGION: auto
+    
+#    - name: Invalidate Cloudflare cache (optional)
+#      if: github.ref == 'refs/heads/main'
+#      run: |
+#        # Optional: Purge Cloudflare cache if you have a custom domain
+#        if [ ! -z "${{ secrets.CLOUDFLARE_ZONE_ID }}" ] && [ ! -z "${{ secrets.CLOUDFLARE_API_TOKEN }}" ]; then
+#          curl -X POST "https://api.cloudflare.com/client/v4/zones/${{ secrets.CLOUDFLARE_ZONE_ID }}/purge_cache" \
+#            -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_API_TOKEN }}" \
+#            -H "Content-Type: application/json" \
+#            --data '{"purge_everything":true}'
+#        fi
+    
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: build-output
+        path: output/
+        retention-days: 7
