@@ -62,11 +62,3 @@ jobs:
 #            -H "Content-Type: application/json" \
 #            --data '{"purge_everything":true}'
 #        fi
-    
-    - name: Upload build artifacts
-      uses: actions/upload-artifact@v3
-      if: always()
-      with:
-        name: build-output
-        path: output/
-        retention-days: 7
