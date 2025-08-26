@@ -277,6 +277,22 @@ class BinaryProcessor:
             '''
         binary_list_html += '</div>'
         
+        # Create code examples as separate variables to preserve formatting
+        quick_start_example = """# Download the latest version of a binary
+curl -L https://binhub.dev/j/jq/1.6/linux-amd64/jq -o jq
+chmod +x jq
+
+# Download GitHub CLI
+curl -L https://binhub.dev/g/gh/2.40.1/linux-amd64/gh -o gh
+chmod +x gh"""
+        
+        directory_example = """/{{first_letter}}/{{binary_name}}/{{version}}/{{os-architecture}}/{{binary}}
+
+Examples:
+/j/jq/1.6/linux-amd64/jq
+/g/gh/2.40.1/darwin-arm64/gh
+/k/kubectl/1.28.0/windows-amd64/kubectl.exe"""
+        
         html_content = f'''<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -322,6 +338,7 @@ class BinaryProcessor:
             padding: 15px;
             font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
             overflow-x: auto;
+            white-space: pre-wrap;
         }}
         .arch-list {{
             display: grid;
@@ -380,15 +397,7 @@ class BinaryProcessor:
     <div class="section">
         <h2>🚀 Quick Start</h2>
         <p>Download binaries directly using curl or wget:</p>
-        <div class="usage-example">
-# Download the latest version of a binary
-curl -L https://binhub.dev/j/jq/1.6/linux-amd64/jq -o jq
-chmod +x jq
-
-# Download GitHub CLI
-curl -L https://binhub.dev/g/gh/2.40.1/linux-amd64/gh -o gh
-chmod +x gh
-        </div>
+        <pre class="usage-example">{quick_start_example}</pre>
     </div>
 
     <div class="section">
@@ -410,14 +419,7 @@ chmod +x gh
     <div class="section">
         <h2>🏗️ Directory Structure</h2>
         <p>Binaries are organized in a predictable nested structure:</p>
-        <div class="usage-example">
-/{{first_letter}}/{{binary_name}}/{{version}}/{{os-architecture}}/{{binary}}
-
-Examples:
-/j/jq/1.6/linux-amd64/jq
-/g/gh/2.40.1/darwin-arm64/gh
-/k/kubectl/1.28.0/windows-amd64/kubectl.exe
-        </div>
+        <pre class="usage-example">{directory_example}</pre>
     </div>
 
     <div class="section">
