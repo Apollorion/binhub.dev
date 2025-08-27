@@ -67,6 +67,9 @@ class BinaryProcessor:
             elif archive_type in ["tar.gz", "tgz"]:
                 with tarfile.open(archive_path, 'r:gz') as tar_file:
                     tar_file.extractall(temp_path)
+            elif archive_type == "tar.xz":
+                with tarfile.open(archive_path, 'r:xz') as tar_file:
+                    tar_file.extractall(temp_path)
             elif archive_type == "tar":
                 with tarfile.open(archive_path, 'r') as tar_file:
                     tar_file.extractall(temp_path)
@@ -119,7 +122,13 @@ class BinaryProcessor:
         try:
             # Validate SHA256 if provided
             if sha256 and not self.validate_sha256(temp_path, sha256):
-                raise ValueError(f"SHA256 mismatch for {binary_info.name} {arch}")
+                # Calculate actual hash for debugging
+                actual_sha256 = hashlib.sha256()
+                with open(temp_path, "rb") as f:
+                    for chunk in iter(lambda: f.read(4096), b""):
+                        actual_sha256.update(chunk)
+                actual_hash = actual_sha256.hexdigest()
+                raise ValueError(f"{binary_info.name}: Expected SHA256 {sha256} got {actual_hash}")
             
             if binary_type == "raw":
                 # Raw binary - just copy to output

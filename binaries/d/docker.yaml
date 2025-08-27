@@ -1,0 +1,44 @@
+name: docker
+description: Container runtime and toolset
+homepage: https://www.docker.com/
+repository: https://github.com/docker/cli
+license: Apache-2.0
+version: "27.1.1"
+
+architectures:
+  darwin-arm64:
+    url: https://download.docker.com/mac/static/stable/aarch64/docker-27.1.1.tgz
+    type: tar.gz
+    binary_path_in_archive: docker/docker
+    sha256: a8d011a64b79957f8abe7e3ff56d852352bf9de529d214eee99d1bb1ce3e3d2d
+
+  darwin-amd64:
+    url: https://download.docker.com/mac/static/stable/x86_64/docker-27.1.1.tgz
+    type: tar.gz
+    binary_path_in_archive: docker/docker
+    sha256: d2e916f1dfc1a107804d0c1b44242ca2884d5ed07507ec91014648b35459aff4
+
+  linux-amd64:
+    url: https://download.docker.com/linux/static/stable/x86_64/docker-27.1.1.tgz
+    type: tar.gz
+    binary_path_in_archive: docker/docker
+    sha256: 118da6b8fc8e8b6c086ab0dd5e64ee549376c3a3f963723bbc9a46db475bf21f
+
+  linux-arm64:
+    url: https://download.docker.com/linux/static/stable/aarch64/docker-27.1.1.tgz
+    type: tar.gz
+    binary_path_in_archive: docker/docker
+    sha256: 86a395f67a5a23d8eb207ab5a9ab32a51f7fccd8b18dae40887e738db95c6bc4
+
+  windows-amd64:
+    url: https://download.docker.com/win/static/stable/x86_64/docker-27.1.1.zip
+    type: zip
+    binary_path_in_archive: docker/docker.exe
+    sha256: 978d3ba0f8440173469580f9c17f44fe28fcef3a59ab87c32d42a2d9a2853c26
+
+tags:
+  - cli
+  - containers
+  - docker
+  - virtualization
+  - development

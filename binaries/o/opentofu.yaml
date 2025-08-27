@@ -1,0 +1,47 @@
+name: opentofu
+description: Open source infrastructure as code tool, fork of Terraform
+homepage: https://opentofu.org/
+repository: https://github.com/opentofu/opentofu
+license: MPL-2.0
+version: "1.10.5"
+
+architectures:
+  darwin-arm64:
+    url: https://github.com/opentofu/opentofu/releases/download/v1.10.5/tofu_1.10.5_darwin_arm64.zip
+    type: zip
+    binary_path_in_archive: tofu
+    sha256: 05dfb37dd24f795de1f6b156e81bc7f830536738c955e2e82720d1a716116aed
+
+  darwin-amd64:
+    url: https://github.com/opentofu/opentofu/releases/download/v1.10.5/tofu_1.10.5_darwin_amd64.zip
+    type: zip
+    binary_path_in_archive: tofu
+    sha256: 943b727f1e1ad0ff5d2b039f2a79730573e9b7eb38242d1f995be513206a3a62
+
+  linux-amd64:
+    url: https://github.com/opentofu/opentofu/releases/download/v1.10.5/tofu_1.10.5_linux_amd64.zip
+    type: zip
+    binary_path_in_archive: tofu
+    sha256: d4fd8ee4c370eaf4b80a4e98fed2fccbdcd117b0603129ff3478b8cb492c7670
+
+  linux-arm64:
+    url: https://github.com/opentofu/opentofu/releases/download/v1.10.5/tofu_1.10.5_linux_arm64.zip
+    type: zip
+    binary_path_in_archive: tofu
+    sha256: a5192eb96d61a7639939162e85e5b946d8a60e5af5925b066f6e72e17d51e712
+
+  windows-amd64:
+    url: https://github.com/opentofu/opentofu/releases/download/v1.10.5/tofu_1.10.5_windows_amd64.zip
+    type: zip
+    binary_path_in_archive: tofu.exe
+    sha256: 54dfe6b4b2d4d4d4c2f56870b6e02a433b2f059b3408177092610aa8fd0dcdf0
+
+
+
+tags:
+  - cli
+  - infrastructure
+  - iac
+  - opentofu
+  - terraform
+  - devops
