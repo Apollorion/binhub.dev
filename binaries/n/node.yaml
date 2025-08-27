@@ -1,0 +1,44 @@
+name: node
+description: JavaScript runtime built on Chrome's V8 JavaScript engine
+homepage: https://nodejs.org/
+repository: https://github.com/nodejs/node
+license: MIT
+version: "24.6.0"
+
+architectures:
+  darwin-arm64:
+    url: https://nodejs.org/dist/v24.6.0/node-v24.6.0-darwin-arm64.tar.gz
+    type: tar.gz
+    binary_path_in_archive: node-v24.6.0-darwin-arm64/bin/node
+    sha256: 768f14952403e3025fed8e2887500dfa63eeb55628a9b203e4b8ebb0fb09c7eb
+
+  darwin-amd64:
+    url: https://nodejs.org/dist/v24.6.0/node-v24.6.0-darwin-x64.tar.gz
+    type: tar.gz
+    binary_path_in_archive: node-v24.6.0-darwin-x64/bin/node
+    sha256: 695fc33454821b216d68cb198d646a9ad769c77d7c323e738381233e4666dffe
+
+  linux-amd64:
+    url: https://nodejs.org/dist/v24.6.0/node-v24.6.0-linux-x64.tar.xz
+    type: tar.xz
+    binary_path_in_archive: node-v24.6.0-linux-x64/bin/node
+    sha256: fda6f6a00759eea0a27e34fcdfdd09c2b0413855edaa7f746246cf81c0186e26
+
+  linux-arm64:
+    url: https://nodejs.org/dist/v24.6.0/node-v24.6.0-linux-arm64.tar.xz
+    type: tar.xz
+    binary_path_in_archive: node-v24.6.0-linux-arm64/bin/node
+    sha256: e514b8b0fa389c10fe3f4278c68fae03df4b7ba61bbde6cae936de3f6ca3b17c
+
+  windows-amd64:
+    url: https://nodejs.org/dist/v24.6.0/node-v24.6.0-win-x64.zip
+    type: zip
+    binary_path_in_archive: node-v24.6.0-win-x64/node.exe
+    sha256: 3a6d32fe5883698e6c59ca5a6554b41c1b2a95db4f7ab7c4edd272f4391780da
+
+tags:
+  - cli
+  - javascript
+  - runtime
+  - development
+  - nodejs

@@ -1,0 +1,44 @@
+name: terraform
+description: Infrastructure as code tool for building, changing, and versioning infrastructure
+homepage: https://www.terraform.io/
+repository: https://github.com/hashicorp/terraform
+license: MPL-2.0
+version: "1.13.1"
+
+architectures:
+  darwin-arm64:
+    url: https://releases.hashicorp.com/terraform/1.13.1/terraform_1.13.1_darwin_arm64.zip
+    type: zip
+    binary_path_in_archive: terraform
+    sha256: 2e067a85882eed25fd966abfb763ae32075940e7b505eb3cd7e592360615d67d
+
+  darwin-amd64:
+    url: https://releases.hashicorp.com/terraform/1.13.1/terraform_1.13.1_darwin_amd64.zip
+    type: zip
+    binary_path_in_archive: terraform
+    sha256: ababbfdb3bab9ac7ca10cb1e71dd5f7fb1ac10b5faf6d842e84524932d9c5ca4
+
+  linux-amd64:
+    url: https://releases.hashicorp.com/terraform/1.13.1/terraform_1.13.1_linux_amd64.zip
+    type: zip
+    binary_path_in_archive: terraform
+    sha256: 4449e2ddc0dee283f0909dd603eaf98edeebaa950f4635cea94f2caf0ffacc5a
+
+  linux-arm64:
+    url: https://releases.hashicorp.com/terraform/1.13.1/terraform_1.13.1_linux_arm64.zip
+    type: zip
+    binary_path_in_archive: terraform
+    sha256: 2bb0787c2da1ad94d6a495a848aad4e9b572adb02bfc7361afeee80f07fd90ac
+
+  windows-amd64:
+    url: https://releases.hashicorp.com/terraform/1.13.1/terraform_1.13.1_windows_amd64.zip
+    type: zip
+    binary_path_in_archive: terraform.exe
+    sha256: 380010e403638cf74bdb6b9846410bde5721f6651cd6c713c67201e81e2b3c43
+
+tags:
+  - cli
+  - infrastructure
+  - iac
+  - terraform
+  - devops

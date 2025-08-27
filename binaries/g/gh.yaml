@@ -1,0 +1,50 @@
+name: gh
+description: GitHub CLI - GitHub's official command line tool
+homepage: https://cli.github.com/
+repository: https://github.com/cli/cli
+license: MIT
+version: "2.78.0"
+
+architectures:
+  darwin-arm64:
+    url: https://github.com/cli/cli/releases/download/v2.78.0/gh_2.78.0_macOS_arm64.zip
+    type: zip
+    binary_path_in_archive: gh_2.78.0_macOS_arm64/bin/gh
+    sha256: 62290b0dbc9965ebbc20d2b481fe83aa167fadc28e0d81a5d93eec6efc9d3b72
+
+  darwin-amd64:
+    url: https://github.com/cli/cli/releases/download/v2.78.0/gh_2.78.0_macOS_amd64.zip
+    type: zip
+    binary_path_in_archive: gh_2.78.0_macOS_amd64/bin/gh
+    sha256: 324f2647f81a9a23934e8f8a969b10d471c398076d027f2dcf9bdc97931adef1
+
+  linux-amd64:
+    url: https://github.com/cli/cli/releases/download/v2.78.0/gh_2.78.0_linux_amd64.tar.gz
+    type: tar.gz
+    binary_path_in_archive: gh_2.78.0_linux_amd64/bin/gh
+    sha256: ac309f70c5d6b122c82e6138ce82cb65ca5d8595cc09d11751fbc4e3907e1a05
+
+  linux-arm64:
+    url: https://github.com/cli/cli/releases/download/v2.78.0/gh_2.78.0_linux_arm64.tar.gz
+    type: tar.gz
+    binary_path_in_archive: gh_2.78.0_linux_arm64/bin/gh
+    sha256: 9e3ca75b227a5503f6ef92c4b8b6dbf94e34bfdd8069ac0f16b8739856ebba7b
+
+  windows-amd64:
+    url: https://github.com/cli/cli/releases/download/v2.78.0/gh_2.78.0_windows_amd64.zip
+    type: zip
+    binary_path_in_archive: bin/gh.exe
+    sha256: 6eac4787b332656aecdecd0b35a674385e185121cdf603ad71a0ef6355d36502
+
+  windows-arm64:
+    url: https://github.com/cli/cli/releases/download/v2.78.0/gh_2.78.0_windows_arm64.zip
+    type: zip
+    binary_path_in_archive: bin/gh.exe
+    sha256: 7b792c42cc364c1d7a28d432877c3251ec676bf9575b06e95e71ac6f8da27807
+
+tags:
+  - cli
+  - git
+  - github
+  - development
+  - vcs
